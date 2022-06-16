@@ -12,7 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.util.List;
 
 @SpringBootApplication
-public class AccessingDataMysqlApplication implements CommandLineRunner {
+public class MySQLApplication implements CommandLineRunner {
 
     @Autowired
     YearService yearService;
@@ -21,7 +21,7 @@ public class AccessingDataMysqlApplication implements CommandLineRunner {
     YearRep yearRep;
 
     public static void main(String[] args) {
-        SpringApplication.run(AccessingDataMysqlApplication.class, args).close();
+        SpringApplication.run(MySQLApplication.class, args).close();
     }
 
     @Override
