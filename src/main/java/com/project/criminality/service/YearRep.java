@@ -14,7 +14,7 @@ public class YearRep {
     EntityManager entityManager;
 
     public List<Year> findAllYearsByCrime(String tableName) {
-        return (List<Year>) entityManager.createNativeQuery("select * from `" + tableName +"`", Year.class).getResultList();
+        return (List<Year>) entityManager.createNativeQuery("SELECT * FROM `" + tableName +"`", Year.class).getResultList();
     }
 
     public List<String> getAllCrimeCodes()
