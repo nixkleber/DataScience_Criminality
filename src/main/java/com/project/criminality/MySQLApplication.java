@@ -37,14 +37,12 @@ public class MySQLApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws IOException {
-
         printAllCrimeCodesToCSV();
         printCrimeCategoriesToCSV();
     }
 
     public void printAllCrimeCodesToCSV() throws IOException {
         List<String> crimeCodes = yearRep.getAllCrimeCodes();
-        System.out.println(yearRep.getAllCrimeCodes());
 
         BufferedWriter writer = Files.newBufferedWriter(Paths.get(CRIMES_CSV_FILE));
 
@@ -56,7 +54,7 @@ public class MySQLApplication implements CommandLineRunner {
             List<Year> years = yearService.findAllYearsByCrime(crimeCode);
             CalculationService calculationService = new CalculationService(years);
 
-            System.out.println("CRIMECODE " + crimeCode + "\n");
+            System.out.println("CRIMECODE " + crimeCode);
 
             List<Integer> amountPerAgeRange = new ArrayList<>();
 
@@ -76,7 +74,6 @@ public class MySQLApplication implements CommandLineRunner {
 
     public void printCrimeCategoriesToCSV() throws IOException {
         List<String> crimeCodes = yearRep.getAllCrimeCodes();
-        System.out.println(yearRep.getAllCrimeCodes());
 
         BufferedWriter writer = Files.newBufferedWriter(Paths.get(CATEGORY_CSV_FILE));
 
@@ -111,28 +108,28 @@ public class MySQLApplication implements CommandLineRunner {
             List<Year> years = yearService.findAllYearsByCrime(crimeCode);
             CalculationService calculationService = new CalculationService(years);
 
-            System.out.println("CRIMECODE " + crimeCode + "\n");
+            System.out.println("CRIMECODE " + crimeCode);
 
             for (int ageRange = 20; ageRange <= 60; ageRange = ageRange + 10) {
                 int totalCasesForAgeRange = calculationService.calculateTotalCasesForAgeRangeRegardingPopulation(ageRange);
 
                 System.out.println("Age: " + (ageRange - 10) + " -> " + (ageRange) + " : " + totalCasesForAgeRange);
 
-                if (crimeCode.startsWith("0")) {
+                if (crimeCode.startsWith("0") && !(crimeCode.equals("000000"))) {
                     cat0AmountPerAgeRange.replace(ageRange, cat0AmountPerAgeRange.get(ageRange) + totalCasesForAgeRange);
-                } else if (crimeCode.startsWith("1")) {
+                } else if (crimeCode.startsWith("1") && !(crimeCode.equals("100000"))) {
                     cat1AmountPerAgeRange.replace(ageRange, cat1AmountPerAgeRange.get(ageRange) + totalCasesForAgeRange);
-                } else if (crimeCode.startsWith("2")) {
+                } else if (crimeCode.startsWith("2") && !(crimeCode.equals("200000"))) {
                     cat2AmountPerAgeRange.replace(ageRange, cat2AmountPerAgeRange.get(ageRange) + totalCasesForAgeRange);
-                } else if (crimeCode.startsWith("3")) {
+                } else if (crimeCode.startsWith("3") && !(crimeCode.equals("300000"))) {
                     cat3AmountPerAgeRange.replace(ageRange, cat3AmountPerAgeRange.get(ageRange) + totalCasesForAgeRange);
-                } else if (crimeCode.startsWith("4")) {
+                } else if (crimeCode.startsWith("4") && !(crimeCode.equals("400000"))) {
                     cat4AmountPerAgeRange.replace(ageRange, cat4AmountPerAgeRange.get(ageRange) + totalCasesForAgeRange);
-                } else if (crimeCode.startsWith("5")) {
+                } else if (crimeCode.startsWith("5") && !(crimeCode.equals("500000"))) {
                     cat5AmountPerAgeRange.replace(ageRange, cat5AmountPerAgeRange.get(ageRange) + totalCasesForAgeRange);
-                } else if (crimeCode.startsWith("6")) {
+                } else if (crimeCode.startsWith("6") && !(crimeCode.equals("600000"))) {
                     cat6AmountPerAgeRange.replace(ageRange, cat6AmountPerAgeRange.get(ageRange) + totalCasesForAgeRange);
-                } else if (crimeCode.startsWith("7")) {
+                } else if (crimeCode.startsWith("7") && !(crimeCode.equals("700000"))) {
                     cat7AmountPerAgeRange.replace(ageRange, cat7AmountPerAgeRange.get(ageRange) + totalCasesForAgeRange);
                 }
             }

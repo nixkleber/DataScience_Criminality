@@ -1,0 +1,9 @@
+crimeCategoryCode,crimeCategoryName,amount10UpTo21,amount21UpTo30,amount30UpTo40,amount40UpTo50,amount50UpTo60
+0,Straftaten gegen das Leben,205,390,288,206,134
+1,Straftaten gegen die sexuelle Selbstbestimmung,5819,5094,4455,3225,1850
+2,Rohheitsdelikte und Straftaten gegen die persönliche Freiheit,110631,113331,77909,51100,27842
+3,Diebstahl ohne erschwerende Umstände,10,46,28,7,2
+4,Diebstahl unter erschwerenden Umständen,7,28,13,2,0
+5,Vermögens- und Fälschungsdelikte,61444,128016,85782,54979,31275
+6,Sonstige Straftatbestände (StGB),104789,86860,59790,42674,27307
+7,Strafrechtliche Nebengesetze,104840,158637,74403,31595,12757

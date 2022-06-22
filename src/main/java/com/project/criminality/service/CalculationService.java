@@ -53,7 +53,6 @@ public class CalculationService {
 
         for (Year year : years
         ) {
-
             double populationThatYear = populationMap.get(year.getYear());
 
             switch (ageRange) {

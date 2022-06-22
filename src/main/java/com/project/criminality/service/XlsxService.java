@@ -17,7 +17,9 @@ public class XlsxService {
 
         HashMap<Integer, Integer> populationMap = new HashMap<>();
 
-        File myFile = new File("C:\\Users\\user\\Dropbox\\Studium_HTW\\Semester\\SS_22\\Grundlagen sozialer Netze\\Projekt\\Daten\\01-BU-BV-TVBZ-deu-ab-1987_xls.xlsx");
+        // File myFile = new File("C:\\Users\\user\\Dropbox\\Studium_HTW\\Semester\\SS_22\\Grundlagen sozialer Netze\\Projekt\\Daten\\01-BU-BV-TVBZ-deu-ab-1987_xls.xlsx");
+
+        File myFile = new File(".\\populations.xlsx");
         FileInputStream fis = new FileInputStream(myFile);
 
         // Finds the workbook instance for XLSX file
@@ -37,11 +39,10 @@ public class XlsxService {
             Iterator<Cell> cellIterator = row.cellIterator();
 
             for (int currentAgeRange = 20; currentAgeRange <= 60; currentAgeRange += 10) {
+                Cell cell = cellIterator.next();
 
                 if (currentAgeRange == ageRange) {
-                    Cell cell = cellIterator.next();
                     int population = (int) cell.getNumericCellValue();
-
                     populationMap.put(year, population);
                 }
             }
