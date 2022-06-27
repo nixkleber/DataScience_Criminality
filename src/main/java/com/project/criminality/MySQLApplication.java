@@ -66,7 +66,9 @@ public class MySQLApplication implements CommandLineRunner {
             }
             System.out.println("----------------------------------------------------");
 
-            csvPrinter.printRecord(crimeCode, amountPerAgeRange.get(0), amountPerAgeRange.get(1), amountPerAgeRange.get(2), amountPerAgeRange.get(3), amountPerAgeRange.get(4));
+            if (!(crimeCode.matches("000000|100000|200000|300000|400000|500000|600000|700000"))) {
+                csvPrinter.printRecord(crimeCode, amountPerAgeRange.get(0), amountPerAgeRange.get(1), amountPerAgeRange.get(2), amountPerAgeRange.get(3), amountPerAgeRange.get(4));
+            }
 
             csvPrinter.flush();
         }
